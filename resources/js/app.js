@@ -1,4 +1,4 @@
-import { createApp, h } from "vue";
+import { createApp, h } from "vue/dist/vue.esm-bundler";
 import { createInertiaApp } from "@inertiajs/vue3";
 import "ant-design-vue/dist/reset.css";
 import LayoutSide from "./Layout/WithSidebar.vue";
@@ -30,18 +30,25 @@ import {
     Input,
     Divider,
 } from "ant-design-vue";
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+
 createInertiaApp({
     progress: {
         color: "#29d",
     },
-    resolve: (name) => {
-        const pages = import.meta.glob("./Pages/**/*.vue", { eager: true });
-        let page = pages[`./Pages/${name}.vue`];
+    resolve: async (name) => {
+        let page = await resolvePageComponent(
+            `./Pages/${name}.vue`,
+            import.meta.glob("./Pages/**/*.vue")
+        );
+        // const pages = import.meta.glob("./Pages/**/*.vue", { eager: false });
+        // let page = pages[`./Pages/${name}.vue`]();
         page.default.layout = page.default.layout || LayoutSide;
         return page;
     },
-    setup({ el, App, props }) {
+    setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
+            .use(plugin)
             .component("a-layout-content", LayoutContent)
             .component("a-row", Row)
             .component("a-space", Space)
