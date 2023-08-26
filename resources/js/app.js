@@ -9,9 +9,6 @@ import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
     SearchOutlined,
-    AppstoreOutlined,
-    LoginOutlined,
-    DashboardOutlined,
 } from "@ant-design/icons-vue";
 
 import {
@@ -31,6 +28,7 @@ import {
     Dropdown,
     MenuItem,
     Input,
+    Divider,
 } from "ant-design-vue";
 createInertiaApp({
     progress: {
@@ -53,6 +51,7 @@ createInertiaApp({
             .component("a-card", Card)
             .component("a-form", Form)
             .component("a-form-item", FormItem)
+            .component("a-divider", Divider)
             .component("a-layout", Layout)
             .component("a-menu", Menu)
             .component("a-layout-header", LayoutHeader)

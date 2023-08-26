@@ -1,4 +1,3 @@
-
 <template>
     <a-layout-content
         :style="{
@@ -8,6 +7,9 @@
             minHeight: '',
         }"
     >
-        Home
+        Home, Docs from
+        <a href="https://antdv.com/docs/vue/introduce" target="_blank"
+            >ant design vue (antd)</a
+        >
     </a-layout-content>
 </template>

@@ -44,20 +44,3 @@ export const items = reactive([
 
     getItem("Login", "3", h(LoginOutlined), null, null, "/login"),
 ]);
-
-// getItem("Navigation One", "sub1", () => h(MailOutlined), [
-//     getItem(
-//         "Item 1",
-//         "g1",
-//         null,
-//         [getItem("Option 1", "1"), getItem("Option 2", "2")],
-//         "group"
-//     ),
-//     getItem(
-//         "Item 2",
-//         "g2",
-//         null,
-//         [getItem("Option 3", "3"), getItem("Option 4", "4")],
-//         "group"
-//     ),
-// ]),
